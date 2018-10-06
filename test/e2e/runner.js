@@ -37,12 +37,12 @@ devConfigPromise.then((devConfig) => {
     const runner = spawn('./node_modules/.bin/nightwatch', opts, { stdio: 'inherit' });
 
     runner.on('exit', (code) => {
-    server.close();
-    process.exit(code);
-  });
+      server.close();
+      process.exit(code);
+    });
 
     runner.on('error', (err) => {
-    server.close();
-    throw err;
-  });
+      server.close();
+      throw err;
+    });
   });
